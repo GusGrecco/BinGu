@@ -1,75 +1,127 @@
-# React + TypeScript + Vite
+# 🎱 Bingo Draw Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application built with **React**, **TypeScript**, and **Vite** that allows bingo organizers to register drawn numbers while players can easily track which numbers have already been called.
 
-Currently, two official plugins are available:
+The application provides a clean, responsive, and intuitive interface, making it suitable for use on desktops, tablets, or large display screens during bingo events.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Register drawn numbers from **1 to 90**
+* Prevent duplicate numbers from being added
+* Highlight the latest drawn number
+* Display the complete 1–90 bingo board
+* Visually distinguish drawn and remaining numbers
+* Show the draw history
+* Start a new game with confirmation
+* Responsive design
+* Local storage persistence (planned)
+* Smooth animations (planned)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* React 19
+* TypeScript
+* Vite
+* Tailwind CSS 4
+* Lucide React
+* Motion
+* Vitest
+* React Testing Library
+* ESLint
+* Prettier
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure
 
+```text
+src/
+├── assets/
+├── components/
+│   ├── bingo/
+│   └── ui/
+├── constants/
+├── hooks/
+├── lib/
+├── store/
+├── types/
+├── utils/
+├── App.tsx
+└── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Clone the repository
 
+```bash
+git clone https://github.com/GusGrecco/BinGu.git
 ```
+
+### Navigate to the project
+
+```bash
+cd bingu
+```
+
+### Install dependencies
+
+```bash
+pnpm install
+```
+
+### Start the development server
+
+```bash
+pnpm dev
+```
+
+---
+
+## 🎯 Project Goals
+
+This project was created to practice and demonstrate modern Front-End development concepts, including:
+
+* Component-based architecture
+* Type-safe development with TypeScript
+* State management
+* Responsive UI design
+* Clean Code principles
+* Reusable components
+* Accessibility best practices
+* Automated testing
+* Professional project structure
+
+---
+
+## 📋 Roadmap
+
+* [ ] Draw numbers from 1 to 90
+* [ ] Prevent duplicate entries
+* [ ] Display draw history
+* [ ] Highlight the latest drawn number
+* [ ] Persist data using Local Storage
+* [ ] Add animations
+* [ ] Implement dark mode
+* [ ] Improve accessibility
+* [ ] Add unit and component tests
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+If you have suggestions for improvements or new features, feel free to open an issue or submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
