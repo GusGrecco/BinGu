@@ -1,17 +1,36 @@
-import { RestartGameButton } from "./restart-game-button";
+import { useState } from "react";
 import { ReturnCallButton } from "./return-call-button";
-import type { ReturnCallButtonProps, RestartGameButtonProps } from "./types";
+import { RestartGameButton } from "./restart-game-button";
+import { ConfirmDialog } from "@/components/ui";
 
 interface GameControlsProps {
-    returnCall: ReturnCallButtonProps;
-    restartGame: RestartGameButtonProps;
+    totalCalls: number;
+    onUndoLastCall: () => void;
+    onResetGame: () => void;
 }
 
-export const GameControls = ({ returnCall, restartGame }: GameControlsProps) => {
+export const GameControls = ({ totalCalls, onUndoLastCall, onResetGame }: GameControlsProps) => {
+    const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+
+    const handleConfirmRestart = () => {
+        onResetGame();
+        setIsConfirmOpen(false);
+    };
+
     return (
         <div className="flex w-full gap-3">
-            <ReturnCallButton {...returnCall} />
-            <RestartGameButton {...restartGame} />
+            <ReturnCallButton disabled={totalCalls === 0} onClick={onUndoLastCall} />
+            <RestartGameButton disabled={totalCalls === 0} onClick={() => setIsConfirmOpen(true)} />
+
+            <ConfirmDialog
+                open={isConfirmOpen}
+                title="Reiniciar jogo?"
+                description="Todos os números sorteados serão apagados. Essa ação não pode ser desfeita."
+                confirmLabel="Reiniciar"
+                destructive
+                onConfirm={handleConfirmRestart}
+                onCancel={() => setIsConfirmOpen(false)}
+            />
         </div>
     );
 };

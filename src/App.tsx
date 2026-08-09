@@ -6,12 +6,14 @@ import {
   SidebarBranding,
   CardTypeIndicator,
   PrizeInfo,
-  NumberBoard
+  NumberBoard,
+  GameControls
 } from './components/bingo';
 import { useBingoGame } from './hooks/use-bingo-game';
+import { getTotalCalls } from './store/bingo';
 
 function App() {
-  const { gameState, drawNumber } = useBingoGame();
+  const { gameState, drawNumber, undoLastCall, resetGame } = useBingoGame();
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       <Sidebar>
@@ -22,6 +24,11 @@ function App() {
       </Sidebar>
       <main className="flex-1 p-6 w-full">
         <NumberBoard gameState={gameState} onSelectNumber={drawNumber} />
+        <GameControls
+          totalCalls={getTotalCalls(gameState)}
+          onUndoLastCall={undoLastCall}
+          onResetGame={resetGame}
+        />
       </main>
     </div>
   )

@@ -1,7 +1,11 @@
 import { useCallback, useState } from "react";
 import type { BingoGameState } from "@/types";
 import { INITIAL_BINGO_GAME_STATE } from "@/constants";
-import { drawNumber as drawNumberAction } from "@/store/bingo";
+import {
+    drawNumber as drawNumberAction,
+    undoLastCall as undoLastCallAction,
+    resetCalledNumbers as resetCalledNumbersAction,
+} from "@/store/bingo";
 
 export const useBingoGame = () => {
     const [gameState, setGameState] = useState<BingoGameState>(INITIAL_BINGO_GAME_STATE);
@@ -10,5 +14,13 @@ export const useBingoGame = () => {
         setGameState((previousState) => drawNumberAction(previousState, value));
     }, []);
 
-    return { gameState, drawNumber };
+    const undoLastCall = useCallback(() => {
+        setGameState((previousState) => undoLastCallAction(previousState));
+    }, []);
+
+    const resetGame = useCallback(() => {
+        setGameState((previousState) => resetCalledNumbersAction(previousState));
+    }, []);
+
+    return { gameState, drawNumber, undoLastCall, resetGame };
 };
