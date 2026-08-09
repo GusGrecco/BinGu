@@ -3,6 +3,7 @@ import './App.css'
 import { Sidebar, SidebarSection } from './components/bingo/sidebar'
 import { SidebarStats } from './components/bingo/sidebar-stats/sidebar-stats'
 import { INITIAL_BINGO_GAME_STATE } from './constants';
+import { SidebarBranding } from './components/bingo/sidebar-branding/sidebar-branding';
 
 function App() {
   const [gameState] = React.useState(INITIAL_BINGO_GAME_STATE);
@@ -10,8 +11,8 @@ function App() {
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       <Sidebar>
-        {/* SidebarBranding — sub-issue de branding */}
-         <SidebarSection><SidebarStats gameState={gameState}/></SidebarSection>
+        <SidebarBranding />
+        <SidebarSection><SidebarStats gameState={gameState} /></SidebarSection>
         {/* <SidebarSection><SidebarCardType /></SidebarSection> — sub-issue de tipo de cartela */}
         {/* <SidebarSection withDivider><SidebarPrize /></SidebarSection> — sub-issue de prêmio */}
       </Sidebar>
