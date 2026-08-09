@@ -8,3 +8,4 @@ export * from "./prize-info/prize-info";
 export * from "./prize-info/prize-image";
 
 export * from "./number-board/number-board";
+export * from "./number-board/number-button";
