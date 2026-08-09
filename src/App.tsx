@@ -6,7 +6,8 @@ import {
   SidebarStats,
   SidebarBranding,
   CardTypeIndicator,
-  PrizeInfo
+  PrizeInfo,
+  NumberBoard
 } from './components/bingo';
 import { INITIAL_BINGO_GAME_STATE } from './constants';
 
@@ -21,7 +22,9 @@ function App() {
         <SidebarSection><CardTypeIndicator cardType={gameState.cardType} /></SidebarSection>
         <SidebarSection withDivider><PrizeInfo prize={gameState.prize} /></SidebarSection>
       </Sidebar>
-      <main className="flex-1 p-6">{/* Number board, header, etc. */}</main>
+      <main className="flex-1 p-6 w-full">
+        <NumberBoard />
+      </main>
     </div>
   )
 }
