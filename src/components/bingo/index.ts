@@ -13,3 +13,6 @@ export * from "./number-board/number-button";
 export * from "./game-controls/game-controls";
 export * from "./game-controls/return-call-button";
 export * from "./game-controls/restart-game-button";
+
+export * from "./call-history/call-history";
+export * from "./call-history/call-history-item";
