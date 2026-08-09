@@ -9,6 +9,7 @@ export interface NumberBoardProps {
 export interface NumberButtonProps {
     number: number;
     isDrawn?: boolean;
+    isCurrent?: boolean;
     disabled?: boolean;
     onClick?: (number: number) => void;
 }

@@ -1,12 +1,14 @@
 import { generateNumberRange } from "@/utils/range";
 import { BINGO_MIN_NUMBER, BINGO_MAX_NUMBER } from "@/constants";
-import { isNumberDrawn } from "@/store/bingo";
-import type { NumberBoardProps } from "./types";
+import { isNumberDrawn, getCurrentCall } from "@/store/bingo";
 import { NumberButton } from "./number-button";
+import type { NumberBoardProps } from "./types";
 
 const boardNumbers = generateNumberRange(BINGO_MIN_NUMBER, BINGO_MAX_NUMBER);
 
 export const NumberBoard = ({ gameState, onSelectNumber, className }: NumberBoardProps) => {
+    const currentCall = getCurrentCall(gameState);
+
     return (
         <div
             role="list"
@@ -18,6 +20,7 @@ export const NumberBoard = ({ gameState, onSelectNumber, className }: NumberBoar
                     <NumberButton
                         number={number}
                         isDrawn={isNumberDrawn(gameState, number)}
+                        isCurrent={currentCall?.value === number}
                         onClick={onSelectNumber}
                     />
                 </div>
