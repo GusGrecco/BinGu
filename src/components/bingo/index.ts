@@ -4,3 +4,5 @@ export * from "./sidebar/sidebar";
 export * from "./sidebar-branding/sidebar-branding";
 export * from "./sidebar-stats/sidebar-stats";
 export * from "./sidebar-stats/stat-item";
+export * from "./prize-info/prize-info";
+export * from "./prize-info/prize-image";
