@@ -13,7 +13,7 @@ export const NumberBoard = ({ gameState, onSelectNumber, className }: NumberBoar
         <div
             role="list"
             aria-label="Cartela de números de 1 a 90"
-            className={`grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-10 max-w-140 ${className ?? ""}`}
+            className={`grid grid-cols-5 gap-2 sm:grid-cols-8 md:grid-cols-10 ${className ?? ""}`}
         >
             {boardNumbers.map((number) => (
                 <div key={number} role="listitem">
