@@ -16,3 +16,14 @@ export const drawNumber = (state: BingoGameState, value: number): BingoGameState
         calledNumbers: [...state.calledNumbers, { value, order: nextOrder }],
     };
 };
+
+export const undoLastCall = (state: BingoGameState): BingoGameState => {
+    if (getTotalCalls(state) === 0) {
+        return state;
+    }
+
+    return {
+        ...state,
+        calledNumbers: state.calledNumbers.slice(0, -1),
+    };
+};
