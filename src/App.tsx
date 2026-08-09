@@ -11,7 +11,7 @@ import {
   CallHistory
 } from './components/bingo';
 import { useBingoGame } from './hooks/use-bingo-game';
-import { getCallHistory, getTotalCalls } from './store/bingo';
+import { getTotalCalls } from './store/bingo';
 
 function App() {
   const { gameState, drawNumber, undoLastCall, resetGame } = useBingoGame();
@@ -31,7 +31,7 @@ function App() {
           onResetGame={resetGame}
         />
       </main>
-      <CallHistory calledNumbers={getCallHistory(gameState)} />
+      <CallHistory gameState={gameState} />
     </div>
   )
 }
