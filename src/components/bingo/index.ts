@@ -9,3 +9,7 @@ export * from "./prize-info/prize-image";
 
 export * from "./number-board/number-board";
 export * from "./number-board/number-button";
+
+export * from "./game-controls/game-controls";
+export * from "./game-controls/return-call-button";
+export * from "./game-controls/restart-game-button";
