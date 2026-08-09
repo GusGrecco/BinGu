@@ -7,7 +7,8 @@ import {
   CardTypeIndicator,
   PrizeInfo,
   NumberBoard,
-  GameControls
+  GameControls,
+  CallHistory
 } from './components/bingo';
 import { useBingoGame } from './hooks/use-bingo-game';
 import { getTotalCalls } from './store/bingo';
@@ -30,6 +31,8 @@ function App() {
           onResetGame={resetGame}
         />
       </main>
+      <CallHistory calledNumbers={gameState.calledNumbers} />
+
     </div>
   )
 }
