@@ -18,3 +18,5 @@ export const getRemainingCalls = (state: BingoGameState): number =>
 
 export const isNumberDrawn = (state: BingoGameState, value: number): boolean =>
     state.calledNumbers.some((call) => call.value === value);
+
+export const getCallHistory = (state: BingoGameState): BingoCalledNumber[] => state.calledNumbers;
