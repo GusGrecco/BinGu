@@ -14,7 +14,7 @@ export const NumberButton = ({ number, isDrawn = false, disabled = false, onClic
             aria-pressed={isDrawn}
             aria-label={`Número ${number}${isDrawn ? ", já sorteado" : ""}`}
             onClick={() => onClick?.(number)}
-            className={`aspect-square rounded-md border text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:cursor-not-allowed disabled:opacity-100 ${stateClasses}`}
+            className={`aspect-square rounded-md border min-h-[3.2rem]  text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:cursor-not-allowed disabled:opacity-100 ${stateClasses}`}
         >
             {number}
         </button>
