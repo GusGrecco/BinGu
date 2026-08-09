@@ -2,8 +2,8 @@ import type { CallHistoryItemProps } from "./types";
 
 export const CallHistoryItem = ({ call, isCurrent = false }: CallHistoryItemProps) => {
     const stateClasses = isCurrent
-        ? "bg-accent text-surface border-2 border-text-primary"
-        : "bg-surface text-text-primary border-line";
+        ? "bg-surface text-accent border-2 border-accent"
+        : "bg-transparent text-text-primary border-line";
 
     return (
         <li

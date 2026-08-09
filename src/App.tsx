@@ -23,15 +23,20 @@ function App() {
         <SidebarSection><CardTypeIndicator cardType={gameState.cardType} /></SidebarSection>
         <SidebarSection withDivider><PrizeInfo prize={gameState.prize} /></SidebarSection>
       </Sidebar>
-      <main className="flex flex-col flex-1 p-6 max-w-155 gap-5">
-        <NumberBoard gameState={gameState} onSelectNumber={drawNumber} />
-        <GameControls
-          totalCalls={getTotalCalls(gameState)}
-          onUndoLastCall={undoLastCall}
-          onResetGame={resetGame}
-        />
+
+      <main className="flex flex-col xl:flex-row p-6 gap-5 md:w-full">
+        <div className="flex flex-col gap-4 xl:h-full xl:w-full md:items-center lg:min-w-140">
+          <NumberBoard gameState={gameState} onSelectNumber={drawNumber} />
+          <GameControls
+            totalCalls={getTotalCalls(gameState)}
+            onUndoLastCall={undoLastCall}
+            onResetGame={resetGame}
+          />
+        </div>
+        <div className="flex flex-col gap-4 xl:min-w-60 xl:w-full">
+        <CallHistory gameState={gameState} />
+        </div>
       </main>
-      <CallHistory gameState={gameState} />
     </div>
   )
 }
