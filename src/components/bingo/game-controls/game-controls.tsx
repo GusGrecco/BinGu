@@ -18,7 +18,7 @@ export const GameControls = ({ totalCalls, onUndoLastCall, onResetGame }: GameCo
     };
 
     return (
-        <div className="flex w-full gap-3">
+        <div className="flex w-full gap-3 md:max-w-146">
             <ReturnCallButton disabled={totalCalls === 0} onClick={onUndoLastCall} />
             <RestartGameButton disabled={totalCalls === 0} onClick={() => setIsConfirmOpen(true)} />
 
