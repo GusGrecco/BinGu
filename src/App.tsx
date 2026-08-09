@@ -14,8 +14,6 @@ import { getTotalCalls } from './store/bingo';
 
 function App() {
   const { gameState, drawNumber, undoLastCall, resetGame } = useBingoGame();
-  const totalCalls = getTotalCalls(gameState);
-
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       <Sidebar>
@@ -24,21 +22,13 @@ function App() {
         <SidebarSection><CardTypeIndicator cardType={gameState.cardType} /></SidebarSection>
         <SidebarSection withDivider><PrizeInfo prize={gameState.prize} /></SidebarSection>
       </Sidebar>
-      <main className="flex-1 p-6 w-full">
-
-        <div>
-          <NumberBoard gameState={gameState} onSelectNumber={drawNumber} />
-          <GameControls
-            returnCall={{
-              disabled: totalCalls === 0,
-              onClick: undoLastCall,
-            }}
-            restartGame={{
-              disabled: totalCalls === 0,
-              onClick: () => { }, // próxima subtarefa
-            }}
-          />
-        </div>
+      <main className="flex flex-col flex-1 p-6 max-w-155 gap-5">
+        <NumberBoard gameState={gameState} onSelectNumber={drawNumber} />
+        <GameControls
+          totalCalls={getTotalCalls(gameState)}
+          onUndoLastCall={undoLastCall}
+          onResetGame={resetGame}
+        />
       </main>
     </div>
   )
