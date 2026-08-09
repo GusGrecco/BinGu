@@ -1,4 +1,5 @@
-export type BingoCardType = "full" | "quina" | "line";
+export const BINGO_CARD_TYPES = ["full", "quina", "line"] as const;
+export type BingoCardType = (typeof BINGO_CARD_TYPES)[number];
 
 export interface BingoCalledNumber {
     value: number;
@@ -12,6 +13,6 @@ export interface BingoPrize {
 
 export interface BingoGameState {
     calledNumbers: BingoCalledNumber[];
-    cardType: BingoCardType | null;
+    cardType: BingoCardType;
     prize: BingoPrize;
 }

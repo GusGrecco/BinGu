@@ -1,9 +1,13 @@
 import React from 'react';
 import './App.css'
-import { Sidebar, SidebarSection } from './components/bingo/sidebar'
-import { SidebarStats } from './components/bingo/sidebar-stats/sidebar-stats'
+import {
+  Sidebar,
+  SidebarSection,
+  SidebarStats,
+  SidebarBranding,
+  CardTypeIndicator
+} from './components/bingo';
 import { INITIAL_BINGO_GAME_STATE } from './constants';
-import { SidebarBranding } from './components/bingo/sidebar-branding/sidebar-branding';
 
 function App() {
   const [gameState] = React.useState(INITIAL_BINGO_GAME_STATE);
@@ -13,7 +17,7 @@ function App() {
       <Sidebar>
         <SidebarBranding />
         <SidebarSection><SidebarStats gameState={gameState} /></SidebarSection>
-        {/* <SidebarSection><SidebarCardType /></SidebarSection> — sub-issue de tipo de cartela */}
+        <SidebarSection><CardTypeIndicator cardType={gameState.cardType} /></SidebarSection>
         {/* <SidebarSection withDivider><SidebarPrize /></SidebarSection> — sub-issue de prêmio */}
       </Sidebar>
       <main className="flex-1 p-6">{/* Number board, header, etc. */}</main>
