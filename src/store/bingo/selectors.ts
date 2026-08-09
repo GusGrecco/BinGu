@@ -16,6 +16,5 @@ export const getTotalCalls = (state: BingoGameState): number => state.calledNumb
 export const getRemainingCalls = (state: BingoGameState): number =>
     BINGO_MAX_NUMBER - getTotalCalls(state);
 
-
-export * from "./selectors";
-export * from "./actions";
+export const isNumberDrawn = (state: BingoGameState, value: number): boolean =>
+    state.calledNumbers.some((call) => call.value === value);

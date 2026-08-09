@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css'
 import {
   Sidebar,
@@ -9,11 +8,10 @@ import {
   PrizeInfo,
   NumberBoard
 } from './components/bingo';
-import { INITIAL_BINGO_GAME_STATE } from './constants';
+import { useBingoGame } from './hooks/use-bingo-game';
 
 function App() {
-  const [gameState] = React.useState(INITIAL_BINGO_GAME_STATE);
-
+  const { gameState, drawNumber } = useBingoGame();
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       <Sidebar>
@@ -23,7 +21,7 @@ function App() {
         <SidebarSection withDivider><PrizeInfo prize={gameState.prize} /></SidebarSection>
       </Sidebar>
       <main className="flex-1 p-6 w-full">
-        <NumberBoard />
+        <NumberBoard gameState={gameState} onSelectNumber={drawNumber} />
       </main>
     </div>
   )

@@ -1,4 +1,8 @@
+import type { BingoGameState } from "@/types";
+
 export interface NumberBoardProps {
+    gameState: BingoGameState;
+    onSelectNumber: (value: number) => void;
     className?: string;
 }
 
