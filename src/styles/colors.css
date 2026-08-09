@@ -5,6 +5,7 @@
     --color-fog-300: #C2C9CC;
     --color-mist-100: #EDEFF0;
     --color-cyan-400: #38B8FF;
+    --color-red-500: #FF4C4C;
 
     /* Tokens semânticos — o que os componentes devem consumir */
     --color-surface: var(--color-navy-900);
@@ -12,4 +13,5 @@
     --color-text-primary: var(--color-mist-100);
     --color-text-secondary: var(--color-fog-300);
     --color-accent: var(--color-cyan-400);
+    --color-error: var(--color-red-500);
 }
