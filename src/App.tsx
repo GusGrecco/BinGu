@@ -31,8 +31,7 @@ function App() {
           onResetGame={resetGame}
         />
       </main>
-      <CallHistory calledNumbers={gameState.calledNumbers} />
-
+      <CallHistory gameState={gameState} />
     </div>
   )
 }
