@@ -16,3 +16,5 @@ export * from "./game-controls/restart-game-button";
 
 export * from "./call-history/call-history";
 export * from "./call-history/call-history-item";
+
+export * from "./game-setup-modal/game-setup-modal";
