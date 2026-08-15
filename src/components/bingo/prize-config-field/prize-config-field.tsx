@@ -3,7 +3,14 @@ import { ImagePlus, X } from "lucide-react";
 import { useObjectUrl } from "@/hooks/use-object-url";
 import type { PrizeConfigFieldProps } from "./types";
 
-export const PrizeConfigField = ({ name, image, onNameChange, onImageChange }: PrizeConfigFieldProps) => {
+export const PrizeConfigField = ({
+    name,
+    image,
+    onNameChange,
+    onImageChange,
+    nameError,
+    imageError,
+}: PrizeConfigFieldProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const previewUrl = useObjectUrl(image);
 
@@ -29,8 +36,15 @@ export const PrizeConfigField = ({ name, image, onNameChange, onImageChange }: P
                     type="text"
                     value={name}
                     onChange={(event) => onNameChange(event.target.value)}
+                    aria-invalid={Boolean(nameError)}
+                    aria-describedby={nameError ? "prize-name-error" : undefined}
                     className="rounded-md border border-line bg-surface p-2 text-sm text-text-primary"
                 />
+                {nameError && (
+                    <p id="prize-name-error" role="alert" className="text-xs text-red-600">
+                        {nameError}
+                    </p>
+                )}
             </div>
 
             <div className="flex flex-col gap-1">
@@ -79,8 +93,15 @@ export const PrizeConfigField = ({ name, image, onNameChange, onImageChange }: P
                     type="file"
                     accept="image/*"
                     onChange={handleFileChange}
+                    aria-invalid={Boolean(imageError)}
+                    aria-describedby={imageError ? "prize-image-error" : undefined}
                     className="hidden"
                 />
+                {imageError && (
+                    <p id="prize-image-error" role="alert" className="text-xs text-red-600">
+                        {imageError}
+                    </p>
+                )}
             </div>
         </div>
     );
