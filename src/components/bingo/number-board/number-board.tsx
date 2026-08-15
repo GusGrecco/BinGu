@@ -1,12 +1,18 @@
+import { useBingoStore } from "@/store/bingo/store";
 import { generateNumberRange } from "@/utils/range";
 import { BINGO_MIN_NUMBER, BINGO_MAX_NUMBER } from "@/constants";
 import { isNumberDrawn, getCurrentCall } from "@/store/bingo";
 import { NumberButton } from "./number-button";
-import type { NumberBoardProps } from "./types";
 
 const boardNumbers = generateNumberRange(BINGO_MIN_NUMBER, BINGO_MAX_NUMBER);
 
-export const NumberBoard = ({ gameState, onSelectNumber, className }: NumberBoardProps) => {
+interface NumberBoardProps {
+    className?: string;
+}
+
+export const NumberBoard = ({ className }: NumberBoardProps) => {
+    const gameState = useBingoStore((state) => state.gameState);
+    const drawNumber = useBingoStore((state) => state.drawNumber);
     const currentCall = getCurrentCall(gameState);
 
     return (
@@ -21,7 +27,7 @@ export const NumberBoard = ({ gameState, onSelectNumber, className }: NumberBoar
                         number={number}
                         isDrawn={isNumberDrawn(gameState, number)}
                         isCurrent={currentCall?.value === number}
-                        onClick={onSelectNumber}
+                        onClick={drawNumber}
                     />
                 </div>
             ))}

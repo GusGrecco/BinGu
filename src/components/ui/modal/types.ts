@@ -7,4 +7,5 @@ export interface ModalProps {
     children: ReactNode;
     actions?: ReactNode;
     closeOnOverlayClick?: boolean;
+    showCloseButton?: boolean;
 }

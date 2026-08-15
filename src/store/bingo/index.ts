@@ -19,3 +19,4 @@ export const getRemainingCalls = (state: BingoGameState): number =>
 
 export * from "./selectors";
 export * from "./actions";
+export * from "./store";

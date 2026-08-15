@@ -5,4 +5,5 @@ export interface GameSetupModalProps {
     onClose: () => void;
     children: ReactNode;
     actions?: ReactNode;
+    dismissible?: boolean;
 }

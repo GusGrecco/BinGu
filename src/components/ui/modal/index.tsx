@@ -9,9 +9,10 @@ export const Modal = ({
     children,
     actions,
     closeOnOverlayClick = true,
+    showCloseButton = true,
 }: ModalProps) => {
     useEffect(() => {
-        if (!open) {
+        if (!open || !closeOnOverlayClick) {
             return;
         }
 
@@ -23,7 +24,7 @@ export const Modal = ({
 
         document.addEventListener("keydown", handleKeyDown);
         return () => document.removeEventListener("keydown", handleKeyDown);
-    }, [open, onClose]);
+    }, [open, closeOnOverlayClick, onClose]);
 
     if (!open) {
         return null;
@@ -45,14 +46,16 @@ export const Modal = ({
                     <h2 id="modal-title" className="text-base font-bold text-text-primary">
                         {title}
                     </h2>
-                    <button
-                        type="button"
-                        onClick={onClose}
-                        aria-label="Fechar"
-                        className="rounded-md p-1 text-text-secondary hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                    >
-                        <X aria-hidden="true" className="h-5 w-5" />
-                    </button>
+                    {showCloseButton && (
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            aria-label="Fechar"
+                            className="rounded-md p-1 text-text-secondary hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                        >
+                            <X aria-hidden="true" className="h-5 w-5" />
+                        </button>
+                    )}
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-4">{children}</div>

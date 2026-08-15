@@ -1,13 +1,13 @@
+import { useBingoStore } from "@/store/bingo/store";
 import { getCallHistory } from "@/store/bingo";
-import type { BingoGameState } from "@/types";
 import { CallHistoryItem } from "./call-history-item";
 
 interface CallHistoryProps {
-    gameState: BingoGameState;
     className?: string;
 }
 
-export const CallHistory = ({ gameState, className }: CallHistoryProps) => {
+export const CallHistory = ({ className }: CallHistoryProps) => {
+    const gameState = useBingoStore((state) => state.gameState);
     const calledNumbers = getCallHistory(gameState);
     const lastIndex = calledNumbers.length - 1;
     const hasCalls = calledNumbers.length > 0;
