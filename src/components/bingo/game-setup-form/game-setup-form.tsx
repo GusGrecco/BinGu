@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { BINGO_CARD_TYPES, type BingoCardType } from "@/types";
-import { BINGO_CARD_TYPE_LABELS, DEFAULT_BINGO_CARD_TYPE } from "@/constants";
+import { CardTypeSelect } from "@/components/bingo";
+import { DEFAULT_BINGO_CARD_TYPE } from "@/constants/";
 import type { GameSetupFormProps, GameSetupFormValues } from "./types";
 
 const DEFAULT_FORM_VALUES: GameSetupFormValues = {
@@ -23,28 +23,10 @@ export const GameSetupForm = ({
 
     return (
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1">
-                <label htmlFor="cardType" className="text-xs text-text-secondary">
-                    Tipo de cartela
-                </label>
-                <select
-                    id="cardType"
-                    value={formValues.cardType}
-                    onChange={(event) =>
-                        setFormValues((previous) => ({
-                            ...previous,
-                            cardType: event.target.value as BingoCardType,
-                        }))
-                    }
-                    className="rounded-md border border-line bg-surface p-2 text-sm text-text-primary"
-                >
-                    {BINGO_CARD_TYPES.map((type) => (
-                        <option key={type} value={type}>
-                            {BINGO_CARD_TYPE_LABELS[type]}
-                        </option>
-                    ))}
-                </select>
-            </div>
+            <CardTypeSelect
+                value={formValues.cardType}
+                onChange={(cardType) => setFormValues((previous) => ({ ...previous, cardType }))}
+            />
 
             <div className="flex flex-col gap-1">
                 <label htmlFor="prizeName" className="text-xs text-text-secondary">
