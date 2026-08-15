@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css'
 import {
   Sidebar,
@@ -8,13 +9,16 @@ import {
   PrizeInfo,
   NumberBoard,
   GameControls,
-  CallHistory
+  CallHistory,
+  GameSetupModal,
+  GameSetupForm
 } from './components/bingo';
 import { useBingoGame } from './hooks/use-bingo-game';
 import { getTotalCalls } from './store/bingo';
 
 function App() {
   const { gameState, drawNumber, undoLastCall, resetGame } = useBingoGame();
+  const [isSetupOpen, setIsSetupOpen] = React.useState(true);
   return (
     <div className="flex min-h-screen flex-col md:flex-row">
       <Sidebar>
@@ -34,9 +38,18 @@ function App() {
           />
         </div>
         <div className="flex flex-col gap-4 xl:min-w-60 xl:w-full">
-        <CallHistory gameState={gameState} />
+          <CallHistory gameState={gameState} />
         </div>
       </main>
+      <GameSetupModal open={isSetupOpen} onClose={() => setIsSetupOpen(false)}>
+        <GameSetupForm
+          onSubmit={() => {
+            // próxima subtarefa: inicializar o game state com esses valores
+            setIsSetupOpen(false);
+          }}
+          onCancel={() => setIsSetupOpen(false)}
+        />
+      </GameSetupModal>
     </div>
   )
 }
