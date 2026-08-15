@@ -20,3 +20,4 @@ export * from "./call-history/call-history-item";
 export * from "./game-setup-modal/game-setup-modal";
 export * from "./game-setup-form/game-setup-form";
 export * from "./card-type-select/card-type-select";
+export * from "./prize-config-field/prize-config-field";

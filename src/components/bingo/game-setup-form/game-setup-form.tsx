@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CardTypeSelect } from "@/components/bingo";
+import { PrizeConfigField, CardTypeSelect } from "@/components/bingo";
 import { DEFAULT_BINGO_CARD_TYPE } from "@/constants/";
 import type { GameSetupFormProps, GameSetupFormValues } from "./types";
 
@@ -28,38 +28,12 @@ export const GameSetupForm = ({
                 onChange={(cardType) => setFormValues((previous) => ({ ...previous, cardType }))}
             />
 
-            <div className="flex flex-col gap-1">
-                <label htmlFor="prizeName" className="text-xs text-text-secondary">
-                    Nome do prêmio
-                </label>
-                <input
-                    id="prizeName"
-                    type="text"
-                    value={formValues.prizeName}
-                    onChange={(event) =>
-                        setFormValues((previous) => ({ ...previous, prizeName: event.target.value }))
-                    }
-                    className="rounded-md border border-line bg-surface p-2 text-sm text-text-primary"
-                />
-            </div>
-
-            <div className="flex flex-col gap-1">
-                <label htmlFor="prizeImage" className="text-xs text-text-secondary">
-                    Imagem do prêmio
-                </label>
-                <input
-                    id="prizeImage"
-                    type="file"
-                    accept="image/*"
-                    onChange={(event) =>
-                        setFormValues((previous) => ({
-                            ...previous,
-                            prizeImage: event.target.files?.[0] ?? null,
-                        }))
-                    }
-                    className="text-sm text-text-secondary"
-                />
-            </div>
+            <PrizeConfigField
+                name={formValues.prizeName}
+                image={formValues.prizeImage}
+                onNameChange={(prizeName) => setFormValues((previous) => ({ ...previous, prizeName }))}
+                onImageChange={(prizeImage) => setFormValues((previous) => ({ ...previous, prizeImage }))}
+            />
 
             <div className="flex justify-end gap-3 pt-2">
                 <button
