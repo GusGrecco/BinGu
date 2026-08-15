@@ -1,5 +1,5 @@
-import type { BingoGameState } from "@/types";
-import { BINGO_MIN_NUMBER, BINGO_MAX_NUMBER } from "@/constants";
+import type { BingoCardType, BingoGameState, BingoPrize } from "@/types";
+import { BINGO_MIN_NUMBER, BINGO_MAX_NUMBER, DEFAULT_BINGO_CARD_TYPE } from "@/constants";
 import { getTotalCalls, isNumberDrawn } from "./selectors";
 
 export const drawNumber = (state: BingoGameState, value: number): BingoGameState => {
@@ -28,13 +28,20 @@ export const undoLastCall = (state: BingoGameState): BingoGameState => {
     };
 };
 
-export const resetCalledNumbers = (state: BingoGameState): BingoGameState => {
-    if (getTotalCalls(state) === 0) {
-        return state;
-    }
+// Reset total: volta cardType e prize aos defaults, não só limpa calledNumbers.
+export const resetGame = (): BingoGameState => ({
+    calledNumbers: [],
+    cardType: DEFAULT_BINGO_CARD_TYPE,
+    prize: { name: "", imageUrl: null },
+});
 
-    return {
-        ...state,
-        calledNumbers: [],
-    };
-};
+interface InitGameConfig {
+    cardType: BingoCardType;
+    prize: BingoPrize;
+}
+
+export const initGame = (config: InitGameConfig): BingoGameState => ({
+    calledNumbers: [],
+    cardType: config.cardType,
+    prize: config.prize,
+});
