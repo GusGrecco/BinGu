@@ -28,7 +28,7 @@ export const PrizeConfigField = ({
     return (
         <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-1">
-                <label htmlFor="prizeName" className="text-xs text-text-secondary">
+                <label htmlFor="prizeName" className="text-left text-xs text-text-secondary">
                     Nome do prêmio
                 </label>
                 <input
@@ -48,8 +48,7 @@ export const PrizeConfigField = ({
             </div>
 
             <div className="flex flex-col gap-1">
-                <span className="text-xs text-text-secondary">Imagem do prêmio</span>
-
+                <span className="text-left text-xs text-text-secondary">Imagem do prêmio</span>
                 {previewUrl ? (
                     <div className="relative w-full overflow-hidden rounded-md" style={{ aspectRatio: "16 / 9" }}>
                         <img
