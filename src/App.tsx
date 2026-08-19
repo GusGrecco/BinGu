@@ -10,7 +10,8 @@ import {
   GameControls,
   CallHistory,
   GameSetupModal,
-  GameSetupForm
+  GameSetupForm,
+  SidebarBranding
 } from './components/bingo';
 import { createPrizeFromSetup } from './lib/prize/create-prize-from-setup';
 import { ConfirmDialog } from './components/ui';
@@ -32,6 +33,9 @@ function App() {
   return (
     <div className="flex min-h-screen">
       <Sidebar>
+        <SidebarSection>
+          <SidebarBranding />
+        </SidebarSection>
         <SidebarSection>
           <SidebarStats />
         </SidebarSection>
