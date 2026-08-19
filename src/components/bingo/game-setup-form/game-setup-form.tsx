@@ -10,11 +10,7 @@ const DEFAULT_FORM_VALUES: GameSetupFormValues = {
     prizeImage: null,
 };
 
-export const GameSetupForm = ({
-    initialValues = DEFAULT_FORM_VALUES,
-    onSubmit,
-    onCancel,
-}: GameSetupFormProps) => {
+export const GameSetupForm = ({ initialValues = DEFAULT_FORM_VALUES, onSubmit }: GameSetupFormProps) => {
     const [formValues, setFormValues] = useState<GameSetupFormValues>(initialValues);
     const [errors, setErrors] = useState<GameSetupFormErrors>({});
 
@@ -61,14 +57,7 @@ export const GameSetupForm = ({
                 imageError={errors.prizeImage}
             />
 
-            <div className="flex justify-end gap-3 pt-2">
-                <button
-                    type="button"
-                    onClick={onCancel}
-                    className="rounded-md border border-line px-4 py-2 text-sm font-bold text-text-primary hover:border-accent hover:text-accent"
-                >
-                    Cancelar
-                </button>
+            <div className="flex justify-end pt-2">
                 <button
                     type="submit"
                     className="rounded-md border border-accent bg-accent px-4 py-2 text-sm font-bold text-surface"
