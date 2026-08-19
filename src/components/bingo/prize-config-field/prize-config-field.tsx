@@ -61,7 +61,7 @@ export const PrizeConfigField = ({
                                 type="button"
                                 onClick={() => inputRef.current?.click()}
                                 aria-label="Substituir imagem"
-                                className="rounded-md bg-surface/90 p-1.5 text-text-primary hover:text-accent"
+                                className="cursor-pointer rounded-md bg-surface/90 p-1.5 text-text-primary hover:text-accent"
                             >
                                 <ImagePlus aria-hidden="true" className="h-4 w-4" />
                             </button>
@@ -69,7 +69,7 @@ export const PrizeConfigField = ({
                                 type="button"
                                 onClick={handleRemove}
                                 aria-label="Remover imagem"
-                                className="rounded-md bg-surface/90 p-1.5 text-text-primary hover:text-red-600"
+                                className="cursor-pointer rounded-md bg-surface/90 p-1.5 text-text-primary hover:text-red-600"
                             >
                                 <X aria-hidden="true" className="h-4 w-4" />
                             </button>
@@ -80,7 +80,7 @@ export const PrizeConfigField = ({
                         type="button"
                         onClick={() => inputRef.current?.click()}
                         style={{ aspectRatio: "16 / 9" }}
-                        className="flex w-full flex-col items-center justify-center gap-1 rounded-md border border-dashed border-line bg-surface text-text-secondary hover:border-accent hover:text-accent"
+                        className="flex w-full cursor-pointer flex-col items-center justify-center gap-1 rounded-md border border-dashed border-line bg-surface text-text-secondary hover:border-accent hover:text-accent"
                     >
                         <ImagePlus aria-hidden="true" className="h-5 w-5" />
                         <span className="text-xs">Selecionar imagem</span>
