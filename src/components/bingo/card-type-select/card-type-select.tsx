@@ -5,7 +5,7 @@ import type { CardTypeSelectProps } from "./types";
 export const CardTypeSelect = ({ value, onChange, error }: CardTypeSelectProps) => {
     return (
         <div className="flex flex-col gap-1">
-            <span id="card-type-label" className="text-xs text-text-secondary">
+            <span id="card-type-label" className="text-left text-xs text-text-secondary">
                 Tipo de cartela
             </span>
             <div
@@ -37,7 +37,7 @@ export const CardTypeSelect = ({ value, onChange, error }: CardTypeSelectProps) 
                 })}
             </div>
             {error && (
-                <p id="card-type-error" role="alert" className="text-xs text-red-600">
+                <p id="card-type-error" role="alert" className="text-left text-xs text-red-600">
                     {error}
                 </p>
             )}
