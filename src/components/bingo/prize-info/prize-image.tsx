@@ -28,7 +28,7 @@ export const PrizeImage = ({ imageUrl, alt }: PrizeImageProps) => {
             src={imageUrl}
             alt={alt}
             onError={() => setFailedToLoad(true)}
-            className="w-full rounded-md object-cover"
+            className="w-full rounded-md object-cover max-w-60"
             style={{ aspectRatio: "16 / 9" }}
         />
     );

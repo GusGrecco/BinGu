@@ -10,7 +10,7 @@ export const SidebarStats = () => {
     const totalCalls = getTotalCalls(gameState);
 
     return (
-        <div className="flex w-full flex-col items-start gap-5">
+        <div className="flex w-full flex-col min-w-60 lg:min-w-50 items-start gap-5">
             <StatItem label="Total de chamadas" value={`${totalCalls} / ${BINGO_MAX_NUMBER}`} />
             <StatItem label="Última chamada" value={previousCall ? String(previousCall.value) : null} />
             <StatItem

@@ -31,23 +31,26 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen flex-col lg:flex-row">
       <Sidebar>
         <SidebarSection>
           <SidebarBranding />
         </SidebarSection>
-        <SidebarSection>
-          <SidebarStats />
-        </SidebarSection>
-        <SidebarSection>
-          <CardTypeIndicator />
-        </SidebarSection>
-        <SidebarSection withDivider>
-          <PrizeInfo />
-        </SidebarSection>
+        <div className="flex flex-row gap-6 lg:flex-col justify-between">
+          <SidebarSection>
+            <SidebarStats />
+          </SidebarSection>
+          <SidebarSection>
+            <CardTypeIndicator />
+          </SidebarSection>
+          <SidebarSection>
+            <PrizeInfo />
+          </SidebarSection>
+        </div>
+
       </Sidebar>
 
-      <main className="flex flex-col xl:flex-row p-6 gap-5 md:w-full">
+      <main className="flex flex-1 flex-col xl:flex-row p-6 gap-5 mt-80 lg:mt-0 md:w-full lg:ml-64">
         <div className="flex flex-col gap-4 xl:h-full xl:w-full md:items-center lg:min-w-140">
           <NumberBoard />
           <GameControls onRestartRequest={() => setIsRestartConfirmOpen(true)} />
