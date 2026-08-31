@@ -60,7 +60,15 @@ export const GameSetupForm = ({ initialValues = DEFAULT_FORM_VALUES, onSubmit }:
             <div className="flex justify-end pt-2">
                 <button
                     type="submit"
-                    className="cursor-pointer select-none rounded-md border border-accent bg-accent px-4 py-2 text-sm font-bold text-surface"
+                    className="
+                        cursor-pointer 
+                        select-none 
+                        rounded-md border border-accent hover:boder-accent-light
+                        bg-accent hover:bg-accent-light
+                        px-4 py-2 
+                        text-sm font-bold text-surface
+                        transition-colors
+                    "
                 >
                     Iniciar jogo
                 </button>
