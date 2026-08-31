@@ -37,7 +37,7 @@ export const ConfirmDialog = ({
                 aria-labelledby="confirm-dialog-title"
                 aria-describedby="confirm-dialog-description"
                 onClick={(event) => event.stopPropagation()}
-                className="w-full max-w-sm rounded-md border border-line bg-surface p-5"
+                className="w-full max-w-sm rounded-md border border-line bg-blue-project p-5"
             >
                 <div className="items-start flex flex-col gap-2">
                 <h2 id="confirm-dialog-title" className="text-base font-bold text-text-primary select-none">
