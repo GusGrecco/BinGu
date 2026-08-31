@@ -50,7 +50,7 @@ function App() {
 
       </Sidebar>
 
-      <main className="flex flex-1 flex-col xl:flex-row p-6 gap-5 mt-80 lg:mt-0 md:w-full lg:ml-64">
+      <main className="flex flex-1 flex-col xl:flex-row p-6 gap-5 mt-90 lg:mt-0 md:w-full lg:ml-64">
         <div className="flex flex-col gap-4 xl:h-full xl:w-full md:items-center lg:min-w-140">
           <NumberBoard />
           <GameControls onRestartRequest={() => setIsRestartConfirmOpen(true)} />
