@@ -25,7 +25,7 @@ export const NumberButton = ({
             aria-pressed={isDrawn}
             aria-label={`Número ${number}${statusLabel}`}
             onClick={() => onClick?.(number)}
-            className={`relative flex aspect-square min-h-[3.2rem] items-center justify-center rounded-md border text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:cursor-not-allowed disabled:opacity-100 ${stateClasses}`}
+            className={`relative flex aspect-square min-h-[3.2rem] items-center justify-center rounded-md border text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface disabled:cursor-not-allowed disabled:opacity-100 select-none ${stateClasses}`}
         >
             {number}
             {isDrawn && !isCurrent && (

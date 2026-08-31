@@ -7,7 +7,7 @@ export const CardTypeIndicator = () => {
 
     return (
         <div className="flex w-full flex-col items-start gap-2">
-            <h3 className="text-xs text-text-secondary">Tipo de cartela</h3>
+            <h3 className="text-xs text-text-secondary select-none">Tipo de cartela</h3>
             <div className="flex flex-wrap gap-2" role="list">
                 {BINGO_CARD_TYPES.map((type) => {
                     const isActive = type === cardType;
@@ -18,8 +18,8 @@ export const CardTypeIndicator = () => {
                             aria-current={isActive ? "true" : undefined}
                             className={
                                 isActive
-                                    ? "rounded-md bg-surface px-3 py-1 text-xs font-bold text-accent"
-                                    : "rounded-md px-3 py-1 text-xs text-text-secondary"
+                                    ? "rounded-md select-none bg-surface px-3 py-1 text-xs font-bold text-accent"
+                                    : "rounded-md select-none px-3 py-1 text-xs text-text-secondary"
                             }
                         >
                             {BINGO_CARD_TYPE_LABELS[type]}

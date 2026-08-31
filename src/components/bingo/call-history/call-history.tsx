@@ -17,15 +17,15 @@ export const CallHistory = ({ className }: CallHistoryProps) => {
             aria-label="Histórico de chamadas"
             className={`flex w-full flex-col gap-2 border-t border-line pt-3 xl:h-full xl:flex-shrink-0 xl:border-l xl:border-t-0 xl:pl-4 xl:pt-0 ${className ?? ""}`}
         >
-            <h2 className="text-xs text-text-secondary">Histórico de chamadas</h2>
+            <h2 className="text-xs text-text-secondary select-none">Histórico de chamadas</h2>
             {hasCalls ? (
-                <ol className="flex flex-wrap gap-1 overflow-y-auto">
+                <ol className="flex flex-wrap gap-1 overflow-y-auto select-none">
                     {calledNumbers.map((call, index) => (
                         <CallHistoryItem key={call.value} call={call} isCurrent={index === lastIndex} />
                     ))}
                 </ol>
             ) : (
-                <p className="text-sm text-text-secondary">Nenhum número sorteado ainda</p>
+                <p className="text-sm text-text-secondary select-none">Nenhum número sorteado ainda</p>
             )}
         </section>
     );

@@ -43,7 +43,7 @@ export const Modal = ({
                 className="flex max-h-[90vh] w-full max-w-md flex-col rounded-md border border-line bg-surface"
             >
                 <div className="flex items-center justify-between border-b border-line p-4">
-                    <h2 id="modal-title" className="text-base font-bold text-text-primary">
+                    <h2 id="modal-title" className="text-base font-bold text-text-primary select-none">
                         {title}
                     </h2>
                     {showCloseButton && (

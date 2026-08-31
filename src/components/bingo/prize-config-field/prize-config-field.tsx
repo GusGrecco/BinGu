@@ -28,7 +28,7 @@ export const PrizeConfigField = ({
     return (
         <div className="flex flex-col gap-3">
             <div className="flex flex-col gap-1">
-                <label htmlFor="prizeName" className="text-left text-xs text-text-secondary">
+                <label htmlFor="prizeName" className="text-left select-none text-xs text-text-secondary">
                     Nome do prêmio
                 </label>
                 <input
@@ -48,7 +48,7 @@ export const PrizeConfigField = ({
             </div>
 
             <div className="flex flex-col gap-1">
-                <span className="text-left text-xs text-text-secondary">Imagem do prêmio</span>
+                <span className="text-left select-none text-xs text-text-secondary">Imagem do prêmio</span>
                 {previewUrl ? (
                     <div className="relative w-full overflow-hidden rounded-md" style={{ aspectRatio: "16 / 9" }}>
                         <img
@@ -80,7 +80,7 @@ export const PrizeConfigField = ({
                         type="button"
                         onClick={() => inputRef.current?.click()}
                         style={{ aspectRatio: "16 / 9" }}
-                        className="flex w-full cursor-pointer flex-col items-center justify-center gap-1 rounded-md border border-dashed border-line bg-surface text-text-secondary hover:border-accent hover:text-accent"
+                        className="flex w-full select-none cursor-pointer flex-col items-center justify-center gap-1 rounded-md border border-dashed border-line bg-surface text-text-secondary hover:border-accent hover:text-accent"
                     >
                         <ImagePlus aria-hidden="true" className="h-5 w-5" />
                         <span className="text-xs">Selecionar imagem</span>
