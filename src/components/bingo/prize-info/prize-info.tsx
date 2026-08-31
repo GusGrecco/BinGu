@@ -8,8 +8,8 @@ export const PrizeInfo = () => {
     if (!hasPrize) {
         return (
             <div className="flex w-full flex-col items-start gap-2">
-                <h3 className="text-xs text-text-secondary">Prêmio da rodada</h3>
-                <p className="text-sm text-text-secondary">Nenhum prêmio definido</p>
+                <h3 className="text-xs text-text-secondary select-none">Prêmio da rodada</h3>
+                <p className="text-sm text-text-secondary select-none">Nenhum prêmio definido</p>
             </div>
         );
     }
@@ -18,9 +18,9 @@ export const PrizeInfo = () => {
 
     return (
         <div className="flex w-full flex-col items-start gap-2">
-            <h3 className="text-xs text-text-secondary">Prêmio da rodada</h3>
+            <h3 className="text-xs text-text-secondary select-none">Prêmio da rodada</h3>
             <PrizeImage key={prize.imageUrl} imageUrl={prize.imageUrl} alt={alt} />
-            <p className="text-sm font-bold text-text-primary">{prize.name || "Prêmio sem nome"}</p>
+            <p className="text-sm font-bold text-text-primary select-none">{prize.name || "Prêmio sem nome"}</p>
         </div>
     );
 };

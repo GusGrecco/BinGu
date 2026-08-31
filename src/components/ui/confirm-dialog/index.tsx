@@ -40,10 +40,10 @@ export const ConfirmDialog = ({
                 className="w-full max-w-sm rounded-md border border-line bg-surface p-5"
             >
                 <div className="items-start flex flex-col gap-2">
-                <h2 id="confirm-dialog-title" className="text-base font-bold text-text-primary">
+                <h2 id="confirm-dialog-title" className="text-base font-bold text-text-primary select-none">
                     {title}
                 </h2>
-                <p id="confirm-dialog-description" className="mt-2 text-sm text-text-secondary text-start">
+                <p id="confirm-dialog-description" className="mt-2 text-sm text-text-secondary text-start select-none">
                     {description}
                 </p>                    
                 </div>
@@ -51,7 +51,7 @@ export const ConfirmDialog = ({
                     <button
                         type="button"
                         onClick={onCancel}
-                        className="rounded-md border border-line px-4 py-2 text-sm font-bold text-text-primary transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                        className="rounded-md border border-line px-4 py-2 text-sm font-bold text-text-primary transition-colors hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface select-none"
                     >
                         {cancelLabel}
                     </button>
@@ -61,8 +61,8 @@ export const ConfirmDialog = ({
                         autoFocus
                         className={
                             destructive
-                                ? "rounded-md border border-error bg-error px-4 py-2 text-sm font-bold text-surface transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-                                : "rounded-md border border-accent bg-accent px-4 py-2 text-sm font-bold text-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                                ? "rounded-md select-none border border-error bg-error px-4 py-2 text-sm font-bold text-surface transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                                : "rounded-md select-none border border-accent bg-accent px-4 py-2 text-sm font-bold text-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
                         }
                     >
                         {confirmLabel}
