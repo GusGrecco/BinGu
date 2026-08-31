@@ -62,7 +62,7 @@ export const ConfirmDialog = ({
                         className={
                             destructive
                                 ? "rounded-md select-none border border-error bg-error px-4 py-2 text-sm font-bold text-surface transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-                                : "rounded-md select-none border border-accent bg-accent px-4 py-2 text-sm font-bold text-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+                                : "rounded-md select-none border border-accent bg-accent hover:bg-accent-light px-4 py-2 text-sm font-bold text-surface transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
                         }
                     >
                         {confirmLabel}
