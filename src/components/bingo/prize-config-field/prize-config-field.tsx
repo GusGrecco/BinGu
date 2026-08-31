@@ -38,7 +38,7 @@ export const PrizeConfigField = ({
                     onChange={(event) => onNameChange(event.target.value)}
                     aria-invalid={Boolean(nameError)}
                     aria-describedby={nameError ? "prize-name-error" : undefined}
-                    className="rounded-md border border-line bg-transparent p-2 text-sm text-text-primary focus:outline-none focus:border-accent"
+                    className="rounded-md border border-line bg-transparent transition-colors p-2 text-sm text-text-primary focus:outline-none focus:border-accent"
                 />
                 {nameError && (
                     <p id="prize-name-error" role="alert" className="text-xs text-red-600">
