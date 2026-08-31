@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ImagePlus, X } from "lucide-react";
 import { useObjectUrl } from "@/hooks/use-object-url";
 import type { PrizeConfigFieldProps } from "./types";
+import { ZoomableImage } from "@/components/ui";
 
 export const PrizeConfigField = ({
     name,
@@ -51,17 +52,17 @@ export const PrizeConfigField = ({
                 <span className="text-left select-none text-xs text-text-secondary">Imagem do prêmio</span>
                 {previewUrl ? (
                     <div className="relative w-full overflow-hidden rounded-md" style={{ aspectRatio: "16 / 9" }}>
-                        <img
+                        <ZoomableImage
+                            key={previewUrl}
                             src={previewUrl}
                             alt="Pré-visualização do prêmio"
-                            className="h-full w-full object-cover"
                         />
                         <div className="absolute right-2 top-2 flex gap-2">
                             <button
                                 type="button"
                                 onClick={() => inputRef.current?.click()}
                                 aria-label="Substituir imagem"
-                                className="cursor-pointer rounded-md bg-surface/90 p-1.5 text-text-primary hover:text-accent"
+                                className="cursor-pointer rounded-md bg-surface/80 p-1.5 text-text-primary hover:text-accent transition-colors"
                             >
                                 <ImagePlus aria-hidden="true" className="h-4 w-4" />
                             </button>
@@ -69,7 +70,7 @@ export const PrizeConfigField = ({
                                 type="button"
                                 onClick={handleRemove}
                                 aria-label="Remover imagem"
-                                className="cursor-pointer rounded-md bg-surface/90 p-1.5 text-text-primary hover:text-red-600"
+                                className="cursor-pointer rounded-md bg-surface/80 p-1.5 text-text-primary hover:text-red-600 hover:bg-error/10 transition-colors"
                             >
                                 <X aria-hidden="true" className="h-4 w-4" />
                             </button>

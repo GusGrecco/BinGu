@@ -1,3 +1,4 @@
+import { ZoomableImage } from "@/components/ui";
 import { useState } from "react";
 
 interface PrizeImageProps {
@@ -23,13 +24,5 @@ export const PrizeImage = ({ imageUrl, alt }: PrizeImageProps) => {
         );
     }
 
-    return (
-        <img
-            src={imageUrl}
-            alt={alt}
-            onError={() => setFailedToLoad(true)}
-            className="w-full rounded-md object-cover max-w-60"
-            style={{ aspectRatio: "16 / 9" }}
-        />
-    );
+    return <ZoomableImage src={imageUrl} alt={alt} onError={() => setFailedToLoad(true)} />;
 };
