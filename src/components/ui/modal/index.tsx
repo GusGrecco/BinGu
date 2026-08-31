@@ -40,7 +40,7 @@ export const Modal = ({
                 aria-modal="true"
                 aria-labelledby="modal-title"
                 onClick={(event) => event.stopPropagation()}
-                className="flex max-h-[90vh] w-full max-w-md flex-col rounded-md border border-line bg-surface"
+                className="flex max-h-[90vh] w-full max-w-md flex-col rounded-md border border-line bg-blue-project"
             >
                 <div className="flex items-center justify-between border-b border-line p-4">
                     <h2 id="modal-title" className="text-base font-bold text-text-primary select-none">

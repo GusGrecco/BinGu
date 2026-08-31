@@ -38,7 +38,7 @@ export const PrizeConfigField = ({
                     onChange={(event) => onNameChange(event.target.value)}
                     aria-invalid={Boolean(nameError)}
                     aria-describedby={nameError ? "prize-name-error" : undefined}
-                    className="rounded-md border border-line bg-surface p-2 text-sm text-text-primary"
+                    className="rounded-md border border-line bg-transparent p-2 text-sm text-text-primary focus:outline-none focus:border-accent"
                 />
                 {nameError && (
                     <p id="prize-name-error" role="alert" className="text-xs text-red-600">
@@ -80,7 +80,7 @@ export const PrizeConfigField = ({
                         type="button"
                         onClick={() => inputRef.current?.click()}
                         style={{ aspectRatio: "16 / 9" }}
-                        className="flex w-full select-none cursor-pointer flex-col items-center justify-center gap-1 rounded-md border border-dashed border-line bg-surface text-text-secondary hover:border-accent hover:text-accent"
+                        className="flex w-full select-none cursor-pointer flex-col items-center justify-center gap-1 rounded-md border border-dashed border-line text-text-secondary hover:border-accent hover:text-accent transition-colors"
                     >
                         <ImagePlus aria-hidden="true" className="h-5 w-5" />
                         <span className="text-xs">Selecionar imagem</span>

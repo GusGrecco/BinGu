@@ -28,7 +28,7 @@ export const CardTypeSelect = ({ value, onChange, error }: CardTypeSelectProps) 
                             className={
                                 isSelected
                                     ? "cursor-pointer select-none rounded-md bg-accent px-3 py-1.5 text-xs font-bold text-surface"
-                                    : "cursor-pointer select-none rounded-md border border-line bg-surface px-3 py-1.5 text-xs text-text-secondary hover:border-accent hover:text-accent"
+                                    : "cursor-pointer select-none rounded-md border border-line bg-transparent px-3 py-1.5 text-xs text-text-secondary hover:border-accent hover:text-accent"
                             }
                         >
                             {BINGO_CARD_TYPE_LABELS[type]}
