@@ -1,12 +1,13 @@
 import { ZoomableImage } from "@/components/ui";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
 interface PrizeImageProps {
     imageUrl: string | null;
     alt: string;
+    moreImageActions?: ReactNode;
 }
 
-export const PrizeImage = ({ imageUrl, alt }: PrizeImageProps) => {
+export const PrizeImage = ({ imageUrl, alt, moreImageActions }: PrizeImageProps) => {
     const [failedToLoad, setFailedToLoad] = useState(false);
 
     const showPlaceholder = !imageUrl || failedToLoad;
@@ -24,5 +25,5 @@ export const PrizeImage = ({ imageUrl, alt }: PrizeImageProps) => {
         );
     }
 
-    return <ZoomableImage src={imageUrl} alt={alt} onError={() => setFailedToLoad(true)} />;
+    return <ZoomableImage src={imageUrl} alt={alt} onError={() => setFailedToLoad(true)} moreActions={moreImageActions} />;
 };
