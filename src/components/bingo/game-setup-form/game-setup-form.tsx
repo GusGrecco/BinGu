@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { PrizeConfigField, CardTypeSelect } from "@/components/bingo";
+import type { GameSetupFormErrors, GameSetupFormProps, GameSetupFormValues } from "./types";
 import { DEFAULT_BINGO_CARD_TYPE } from "@/constants";
 import { gameSetupSchema } from "@/lib/validation/game-setup-schema";
-import type { GameSetupFormErrors, GameSetupFormProps, GameSetupFormValues } from "./types";
+import { getMissingPrizeConfigMessage } from "@/lib/prize/get-missing-prize-config-message";
+import { PrizeConfigField, CardTypeSelect } from "../index";
+import { ConfirmDialog } from "@/components/ui";
 
 const DEFAULT_FORM_VALUES: GameSetupFormValues = {
     cardType: DEFAULT_BINGO_CARD_TYPE,
@@ -13,6 +15,7 @@ const DEFAULT_FORM_VALUES: GameSetupFormValues = {
 export const GameSetupForm = ({ initialValues = DEFAULT_FORM_VALUES, onSubmit }: GameSetupFormProps) => {
     const [formValues, setFormValues] = useState<GameSetupFormValues>(initialValues);
     const [errors, setErrors] = useState<GameSetupFormErrors>({});
+    const [pendingValues, setPendingValues] = useState<GameSetupFormValues | null>(null);
 
     const updateField = <K extends keyof GameSetupFormValues>(field: K, value: GameSetupFormValues[K]) => {
         setFormValues((previous) => ({ ...previous, [field]: value }));
@@ -37,42 +40,62 @@ export const GameSetupForm = ({ initialValues = DEFAULT_FORM_VALUES, onSubmit }:
         }
 
         setErrors({});
+
+        const missingConfigMessage = getMissingPrizeConfigMessage(result.data);
+
+        if (missingConfigMessage) {
+            setPendingValues(result.data);
+            return;
+        }
+
         onSubmit(result.data);
     };
 
+    const handleConfirmStart = () => {
+        if (pendingValues) {
+            onSubmit(pendingValues);
+        }
+        setPendingValues(null);
+    };
+
+    const missingConfigMessage = pendingValues ? getMissingPrizeConfigMessage(pendingValues) : null;
+
     return (
-        <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
-            <CardTypeSelect
-                value={formValues.cardType}
-                onChange={(cardType) => updateField("cardType", cardType)}
-                error={errors.cardType}
-            />
+        <>
+            <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+                <CardTypeSelect
+                    value={formValues.cardType}
+                    onChange={(cardType) => updateField("cardType", cardType)}
+                    error={errors.cardType}
+                />
 
-            <PrizeConfigField
-                name={formValues.prizeName}
-                image={formValues.prizeImage}
-                onNameChange={(prizeName) => updateField("prizeName", prizeName)}
-                onImageChange={(prizeImage) => updateField("prizeImage", prizeImage)}
-                nameError={errors.prizeName}
-                imageError={errors.prizeImage}
-            />
+                <PrizeConfigField
+                    name={formValues.prizeName}
+                    image={formValues.prizeImage}
+                    onNameChange={(prizeName) => updateField("prizeName", prizeName)}
+                    onImageChange={(prizeImage) => updateField("prizeImage", prizeImage)}
+                    nameError={errors.prizeName}
+                    imageError={errors.prizeImage}
+                />
 
-            <div className="flex justify-end pt-2">
-                <button
-                    type="submit"
-                    className="
-                        cursor-pointer 
-                        select-none 
-                        rounded-md border border-accent hover:boder-accent-light
-                        bg-accent hover:bg-accent-light
-                        px-4 py-2 
-                        text-sm font-bold text-surface
-                        transition-colors
-                    "
-                >
-                    Iniciar jogo
-                </button>
-            </div>
-        </form>
+                <div className="flex justify-end pt-2">
+                    <button
+                        type="submit"
+                        className="cursor-pointer rounded-md border border-accent bg-accent px-4 py-2 text-sm font-bold text-surface transition-colors hover:bg-accent/90"
+                    >
+                        Iniciar jogo
+                    </button>
+                </div>
+            </form>
+
+            <ConfirmDialog
+                open={pendingValues !== null}
+                title="Iniciar sem configuração completa?"
+                description={missingConfigMessage ?? ""}
+                confirmLabel="Iniciar mesmo assim"
+                onConfirm={handleConfirmStart}
+                onCancel={() => setPendingValues(null)}
+            />
+        </>
     );
 };
